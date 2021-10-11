@@ -1,0 +1,36 @@
+
+{% extends 'smi.html' %}
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+
+
+
+    
+<center><h1>welcome to online weather Forecast</h1></center>
+
+<center class="row">
+    
+  <form method="post" class="weather">
+    {% csrf_token %}
+    <div class="input-group">
+      <input type="text" class="form-control" name="city" placeholder="Search">
+      
+        <button style="color: blue;" type="submit">submit</button>
+      </div>
+      <form>
+</center>
+
+<center>
+<div class="row">
+  {% if country_code and coordinate and temp and pressure and humidity %}
+  <div class="weather">
+    <h1>country code :-- {{country_code}}</h1>
+      <h3>coordinate :-- {{coordinate}}</h3>
+      <h2>temp :-- {{temp}}</h2>
+      <h3>pressure :-- {{pressure}} </h3>
+      <h3 >humidity :-- {{humidity}}</h3>
+  </div>
+  {% endif %}
+</center>
+{% endblock body %}
